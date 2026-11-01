@@ -1,0 +1,26 @@
+# Python 运行环境与缓存
+venv/
+__pycache__/
+*.py[cod]
+
+# PyInstaller 构建产物
+build/
+dist/
+
+# 游戏数据与反编译导出（体积大，不入库）
+input/
+output/
+dumpfiles/
+libil2cppdump/
+
+# 独立的旧分析脚本（不属于本工具）
+manifest_analysis/
+
+# IDE / 工具目录
+.idea/
+.trae/
+.trae-html-share-packages/
+
+# 误写出的临时文件
+/q
+/u amber_gui

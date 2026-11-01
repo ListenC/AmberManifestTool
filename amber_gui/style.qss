@@ -1,0 +1,241 @@
+/* Amber Manifest 可视化工具 —— 主题模板（浅色 / 深色共用）
+
+   颜色一律写成被 at 号包住的大写令牌（如 BG、TABLE_BG），由 amber_gui/theme.py
+   按 Windows 当前明暗替换后再交给 Qt；令牌清单与取值也在 theme.py，改配色只改那一处。
+
+   三条约定：
+   1) 不给 QTableView / QTreeView::item 设 background —— 会盖掉模型层 BackgroundRole
+      （自校验表绿/红底、键表同键组着色）。
+   2) 没写规则的控件会落回 QPalette，所以 theme.py 必须同步给出整套调色板，否则会出现
+      "半套 QSS + 半套系统暗色"的明暗混杂（深色模式下没写规则的 QTreeWidget 视口就是这种）。
+   3) 等宽列靠模型的 Qt.FontRole 指定 Consolas，会覆盖这里的 font-family，故 hex / 偏移列不受影响。 */
+
+QWidget {
+    font-family: "Microsoft YaHei UI", "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", "Segoe UI", sans-serif;
+    font-size: 12px;
+    color: @FG@;
+}
+
+QMainWindow, QDialog, QScrollArea {
+    background: @BG@;
+}
+
+/* ---------------- 工具栏 ---------------- */
+QToolBar {
+    background: @SURFACE@;
+    border-bottom: 1px solid @BORDER@;
+    padding: 4px 6px;
+    spacing: 4px;
+}
+QToolBar::separator {
+    background: @SEPARATOR@;
+    width: 1px;
+    margin: 4px 6px;
+}
+QToolButton {
+    padding: 5px 10px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background: transparent;
+}
+QToolButton:hover {
+    background: @BTN_HOVER_BG@;
+    border-color: @BTN_HOVER_BORDER@;
+}
+QToolButton:pressed {
+    background: @BTN_PRESSED_BG@;
+}
+QToolButton:disabled {
+    color: @DISABLED_FG@;
+}
+
+/* ---------------- 标签页 ---------------- */
+QTabWidget::pane {
+    background: @BG@;
+    border: 1px solid @BORDER@;
+}
+QTabBar::tab {
+    background: @TAB_BG@;
+    border: 1px solid @BORDER@;
+    border-bottom: none;
+    padding: 6px 16px;
+    margin-right: 2px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+QTabBar::tab:selected {
+    background: @TAB_SEL_BG@;
+    color: @ACCENT@;
+    font-weight: bold;
+}
+QTabBar::tab:hover:!selected {
+    background: @TAB_HOVER_BG@;
+}
+
+/* ---------------- 表格、树与文本 ---------------- */
+QTableView, QTableWidget, QTreeView, QTreeWidget, QPlainTextEdit {
+    background: @TABLE_BG@;
+    alternate-background-color: @TABLE_ALT@;
+    gridline-color: @GRID@;
+    border: 1px solid @BORDER@;
+    border-radius: 4px;
+    selection-background-color: @SEL_BG@;
+    selection-color: @SEL_FG@;
+}
+QTableView::item, QTableWidget::item, QTreeView::item, QTreeWidget::item {
+    padding: 1px 4px;
+}
+QHeaderView::section {
+    background: @HEADER_BG@;
+    color: @FG@;
+    padding: 5px 6px;
+    border: none;
+    border-right: 1px solid @BORDER_SOFT@;
+    border-bottom: 1px solid @BORDER_SOFT@;
+    font-weight: bold;
+}
+QTableCornerButton::section {
+    background: @HEADER_BG@;
+    border: none;
+}
+
+/* ---------------- 输入 ---------------- */
+QLineEdit {
+    background: @SURFACE@;
+    color: @FG@;
+    border: 1px solid @BORDER@;
+    border-radius: 4px;
+    padding: 4px 6px;
+    selection-background-color: @SEL_BG@;
+    selection-color: @SEL_FG@;
+}
+QLineEdit:focus {
+    border-color: @FOCUS@;
+}
+QCheckBox {
+    spacing: 6px;
+}
+
+/* ---------------- 分组框 ---------------- */
+QGroupBox {
+    background: @SURFACE@;
+    border: 1px solid @BORDER_SOFT@;
+    border-radius: 5px;
+    margin-top: 12px;
+    font-weight: bold;
+}
+QGroupBox::title {
+    subcontrol-origin: margin;
+    left: 10px;
+    padding: 0 4px;
+    color: @GROUP_TITLE@;
+}
+
+/* ---------------- 按钮 ---------------- */
+QPushButton {
+    background: @SURFACE@;
+    color: @FG@;
+    border: 1px solid @BTN_BORDER@;
+    border-radius: 4px;
+    padding: 5px 12px;
+}
+QPushButton:hover {
+    background: @PUSH_HOVER_BG@;
+    border-color: @PUSH_HOVER_BORDER@;
+}
+QPushButton:pressed {
+    background: @PUSH_PRESSED_BG@;
+}
+QPushButton:disabled {
+    color: @DISABLED_FG@;
+    border-color: @PUSH_DISABLED_BORDER@;
+}
+
+/* ---------------- 状态栏与进度 ---------------- */
+QStatusBar {
+    background: @SURFACE@;
+    border-top: 1px solid @BORDER@;
+}
+QStatusBar::item {
+    border: none;
+}
+QProgressBar {
+    border: 1px solid @BTN_BORDER@;
+    border-radius: 4px;
+    background: @PROGRESS_BG@;
+    color: @FG@;
+    text-align: center;
+    height: 16px;
+    min-width: 180px;
+}
+QProgressBar::chunk {
+    background: @CHUNK@;
+    border-radius: 3px;
+}
+
+/* ---------------- 滚动条 ---------------- */
+QScrollBar:vertical {
+    background: @BG@;
+    width: 12px;
+    margin: 0;
+}
+QScrollBar::handle:vertical {
+    background: @SCROLL_HANDLE@;
+    border-radius: 6px;
+    min-height: 30px;
+}
+QScrollBar::handle:vertical:hover {
+    background: @SCROLL_HANDLE_HOVER@;
+}
+QScrollBar:horizontal {
+    background: @BG@;
+    height: 12px;
+    margin: 0;
+}
+QScrollBar::handle:horizontal {
+    background: @SCROLL_HANDLE@;
+    border-radius: 6px;
+    min-width: 30px;
+}
+QScrollBar::handle:horizontal:hover {
+    background: @SCROLL_HANDLE_HOVER@;
+}
+QScrollBar::add-line, QScrollBar::sub-line {
+    height: 0;
+    width: 0;
+}
+QScrollBar::add-page, QScrollBar::sub-page {
+    background: none;
+}
+
+/* ---------------- 提示气泡 ---------------- */
+QToolTip {
+    background: @TOOLTIP_BG@;
+    color: @FG@;
+    border: 1px solid @TOOLTIP_BORDER@;
+    padding: 4px 6px;
+}
+
+/* ---------------- 命名元素 ---------------- */
+QLabel#banner {
+    background: @BANNER_BG@;
+    border: 1px solid @BANNER_BORDER@;
+    border-radius: 4px;
+    padding: 6px 8px;
+    color: @BANNER_FG@;
+}
+QLabel#hint {
+    color: @HINT_FG@;
+}
+QLabel#monoDump {
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 12px;
+}
+QLabel#verdictOk {
+    color: @OK_FG@;
+    font-weight: bold;
+}
+QLabel#verdictBad {
+    color: @BAD_FG@;
+    font-weight: bold;
+}

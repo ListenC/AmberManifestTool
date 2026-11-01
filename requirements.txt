@@ -1,0 +1,9 @@
+# 运行期依赖
+UnityPy==1.10.2
+PySide6==6.11.2
+
+# 说明：
+#   UnityPy 会带进 Pillow / lz4 / brotli / texture2ddecoder / etcpak / tabulate，
+#   它们是 UnityFS 容器读取的导入期硬依赖，无需单独 pin。
+#   打包（构建期）依赖 pyinstaller，见 build_exe.bat：
+#       .\venv\Scripts\python.exe -m pip install pyinstaller
