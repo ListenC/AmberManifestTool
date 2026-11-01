@@ -7,6 +7,8 @@
 
 `Python 3.11` · `PySide6` · `Windows` · `只读`
 
+**[📖 在线图文教程](https://listenC.github.io/AmberManifestTool/)** &nbsp;·&nbsp; **[⬇ 下载单文件 exe](https://github.com/ListenC/AmberManifestTool/raw/main/dist/AmberManifestTool.exe)**（v1.1.0，免安装）
+
 ![概览页](docs/assets/01-overview.png)
 
 ## 目录
@@ -37,7 +39,15 @@
 
 ## 快速开始
 
-### 1. 装依赖
+### 方式一：直接用 exe（免安装）
+
+下载 **[dist/AmberManifestTool.exe](https://github.com/ListenC/AmberManifestTool/raw/main/dist/AmberManifestTool.exe)** 双击运行即可，不需要 Python 环境，也不需要旁边的任何 dll / 目录。
+
+> 单文件版每次启动先把自身解压到 `%TEMP%`，冷启动 5~8 秒属正常现象。
+
+### 方式二：源码运行
+
+#### 1. 装依赖
 
 ```powershell
 git clone https://github.com/ListenC/AmberManifestTool.git
@@ -46,7 +56,7 @@ python -m venv venv
 .\venv\Scripts\python.exe -m pip install -r requirements.txt
 ```
 
-### 2. 启动
+#### 2. 启动
 
 ```powershell
 .\venv\Scripts\python.exe -m amber_gui
@@ -54,7 +64,7 @@ python -m venv venv
 .\venv\Scripts\python.exe amber_gui\__main__.py
 ```
 
-### 3. 打开 manifest
+### 打开 manifest
 
 三种方式任选：
 

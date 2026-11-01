@@ -5,7 +5,9 @@ __pycache__/
 
 # PyInstaller 构建产物
 build/
-dist/
+dist/*
+# 只发布打包好的单文件 exe，构建目录与中间文件不入库
+!dist/AmberManifestTool.exe
 
 # 游戏数据与反编译导出（体积大，不入库）
 input/
