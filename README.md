@@ -7,7 +7,7 @@
 
 `Python 3.11` · `PySide6` · `Windows` · `只读`
 
-**[📖 在线图文教程](https://listenC.github.io/AmberManifestTool/)** &nbsp;·&nbsp; **[⬇ 下载单文件 exe](https://github.com/ListenC/AmberManifestTool/raw/main/dist/AmberManifestTool.exe)**（v1.1.0，免安装）
+**[在线图文教程](https://listenC.github.io/AmberManifestTool/)** &nbsp;·&nbsp; **[下载单文件 exe](https://github.com/ListenC/AmberManifestTool/raw/main/dist/AmberManifestTool.exe)**（v1.1.0，免安装）
 
 ![概览页](docs/assets/01-overview.png)
 
