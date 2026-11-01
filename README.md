@@ -7,7 +7,7 @@
 
 `Python 3.11` · `PySide6` · `Windows` · `只读`
 
-![概览页](amber-manifest-guide/assets/01-overview.png)
+![概览页](docs/assets/01-overview.png)
 
 ## 目录
 
@@ -83,9 +83,9 @@ python -m venv venv
 | 4 键表 | `nameHash` 升序数组（**键序 ≠ 记录顺序**），勾选「只看重复键」可查弱哈希碰撞 |
 | 5 名字前缀池 | 记录只存文件名片段，完整名 = 池内前缀 + 文件名；带 `X/O`（xor/off）与 `O/D/A`（打包粒度）标志位 |
 
-![资源视图](amber-manifest-guide/assets/02-assets.png)
+![资源视图](docs/assets/02-assets.png)
 
-![记录页](amber-manifest-guide/assets/03-records.png)
+![记录页](docs/assets/03-records.png)
 
 ## 游戏（扰动流）
 
@@ -191,7 +191,7 @@ CLI 会做三项断言式自校验（格式版本、键表命中、dataHash 一�
 ├─ main.py                     # 命令行批量导出
 ├─ build_exe.bat               # 打包单文件 exe
 ├─ manifest_format.md          # 二进制格式文档（逐 word 字段归属、算法推导）
-├─ amber-manifest-guide/       # 网页版图文教程（离线单页 HTML + 截图）
+├─ docs/                       # 网页版图文教程（GitHub Pages 发布源，index.html + assets/）
 └─ README.md
 ```
 
@@ -237,7 +237,7 @@ xx/                     2 字符 = hash_code(名字, 0) & 0xff 的 hex
 
 ## 相关文档
 
-- [网页版图文教程](amber-manifest-guide/amber-manifest-guide.html) —— 双击浏览器打开，含全部截图与分步操作
+- [网页版图文教程](https://listenC.github.io/AmberManifestTool/) —— 在线版（GitHub Pages）；本地也可直接打开 docs/index.html
 - [manifest_format.md](manifest_format.md) —— 二进制格式细节：每个 word 的字段归属、§13 算法推导、实测数据
 
 ## 免责声明
